@@ -5,7 +5,8 @@ Backend Developer Assessment(NIYO Group)
 This documentation covers the setup, configuration, and usage of a Task Management application built with Django and Django Channels for real-time functionality.
 
 
-PLEASE NOTE SNYK(SNYK.IO) WAS USED FOR THE VULNERABILITY SCANNING OF THIS API
+* PLEASE NOTE SNYK(SNYK.IO) WAS USED FOR THE VULNERABILITY SCANNING OF THIS API.
+* FOR THE REAL LIVE DATA: Navigate to your localhost:8000/real_data. It shows the real data as created according to assessment instructions.
 
 Project Setup
 Prerequisites
@@ -29,14 +30,14 @@ pip install -r requirements.txt
 redis-server(5.0 and above)
 
 2. Apply Migrations
-
-python manage.py migrate
+  a. python.manage.py makemigrations
+  b. python manage.py migrate
 
 3. Collect Static Files
 python manage.py collectstatic --noinput
 4. Run Development Server
 python manage.py runserver
-5. App should be running by now. Navigate to your localhost:8000/real_data
+5. App should be running by now. 
 
 AUTHENTICATION
 
@@ -92,6 +93,10 @@ To register a new user, send a POST request to /api/register/ with the following
   "password": "your_password",
   "email": "your_email@example.com"
 }
+
+
+
+ 
 
 Documentation available at http://127.0.0.1:8000/swagger/ or http://127.0.0.1:8000/swagger/
 
