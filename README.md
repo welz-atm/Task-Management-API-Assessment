@@ -2,6 +2,9 @@
 Backend Developer Assessment(NIYO Group)
 This documentation covers the setup, configuration, and usage of a Task Management application built with Django and Django Channels for real-time functionality.
 
+
+PLEASE NOTE SNYK(SNYK.IO) WAS USED FOR THE VULNERABILITY SCANNING OF THIS API
+
 Project Setup
 Prerequisites
 Python 3.9+
