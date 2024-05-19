@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Management</title>
+    <style>
+        .task {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task List</h1>
+    <div id="task-list"></div>
+
+    <script>
+        const taskList = document.getElementById('task-list');
+        const socket = new WebSocket('ws://localhost:8000/ws/tasks/');
+
+        socket.onopen = function() {
+            console.log('WebSocket connection opened. I got  here');
+        };
+
+        socket.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+            console.log('Parsed data:', data);
+
+            if (data.action === 'create') {
+                const taskElement = createTaskElement(data.task);
+                taskList.appendChild(taskElement);
+            }
+            socket.close();
+        };
+
+        socket.onerror = function(error) {
+            console.error('WebSocket error:', error);
+        };
+
+        socket.onclose = function() {
+            console.log('WebSocket connection closed. I have closed the connection');
+            socket.close();
+        };
+
+        function createTaskElement(task) {
+            const taskElement = document.createElement('div');
+            taskElement.classList.add('task');
+
+            const titleElement = document.createElement('h3');
+            titleElement.textContent = task.title;
+            taskElement.appendChild(titleElement);
+
+            const descriptionElement = document.createElement('p');
+            descriptionElement.textContent = task.description;
+            taskElement.appendChild(descriptionElement);
+
+            const statusElement = document.createElement('p');
+            statusElement.textContent = `Completed: ${task.completed}`;
+            taskElement.appendChild(statusElement);
+
+            return taskElement;
+        }
+    </script>
+</body>
+</html>
