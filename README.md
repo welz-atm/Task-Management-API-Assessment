@@ -1,5 +1,7 @@
 # Task-Management-API-Assessment
 Backend Developer Assessment(NIYO Group)
+
+
 This documentation covers the setup, configuration, and usage of a Task Management application built with Django and Django Channels for real-time functionality.
 
 
@@ -7,12 +9,14 @@ PLEASE NOTE SNYK(SNYK.IO) WAS USED FOR THE VULNERABILITY SCANNING OF THIS API
 
 Project Setup
 Prerequisites
-Python 3.9+
-Git
+Python 3.9+,
+Git,
 Redis
 
-git clone <repository-url>
-cd <repository-name>
+
+git clone https://github.com/welz-atm/Task-Management-API-Assessment.git
+
+cd Task-Management-API-Assessment
 
 Install Python Dependencies
 Create a virtual environment and install the required packages:
